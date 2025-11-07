@@ -1,4 +1,4 @@
-public class Audiobook extends Mídias {
+public class Audiobook extends Midias {
     private String narrador;
 
     public Audiobook(String titulo, String narrador, double duracao, String genero) {

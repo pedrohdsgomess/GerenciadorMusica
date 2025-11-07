@@ -1,4 +1,4 @@
-public class Podcast extends Mídias {
+public class Podcast extends Midias {
     private String apresentador;
 
     public Podcast(String titulo, String apresentador, double duracao, String genero) {

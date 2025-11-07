@@ -1,13 +1,104 @@
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
-void main() {
-    //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-    // to see how IntelliJ IDEA suggests fixing it.
-    IO.println(String.format("Hello and welcome!"));
+import exceptions.CodigoInvalidoExecption;
 
-    for (int i = 1; i <= 5; i++) {
-        //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-        // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-        IO.println("i = " + i);
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+        Catalogo catalago = new Catalogo();
+        String nomepessoa;
+        String email;
+
+        // Cadastro inicial
+        System.out.println("=== Bem-vindo ao Mini Spotify ===");
+        while (true) {
+            System.out.print("Digite seu nome: ");
+            nomepessoa = scan.nextLine();
+            System.out.print("Digite seu e-mail: ");
+            email = scan.nextLine();
+            if (nomepessoa.trim().isEmpty() || email.trim().isEmpty()) {
+                System.out.println("\nNome e e-mail são obrigatórios.");
+            } else if (!email.contains("@") || !email.contains(".com")) {
+                System.out.println("\nE-mail inválido! Confira se contém '@' e '.com'");
+            } else {
+                System.out.println("Cadastro realizado com sucesso!");
+                System.out.println("Olá, seja bem-vindo, " + nomepessoa + "!");
+                break;
+            }
+        }
+
+        // Menu principal
+        int opcao = -1;
+
+        do {
+            System.out.println("\nSelecione uma das opções abaixo:");
+            System.out.println("1 - Listagem de mídias");
+            System.out.println("2 - Adicionar uma nova mídia");
+            System.out.println("3 - Excluir mídia");
+            System.out.println("4 - Exibir quantidade total de mídias");
+            System.out.println("5 - Pesquisar uma mídia");
+            System.out.println("6 - Criar playlist");
+            System.out.println("7 - Excluir playlist");
+            System.out.println("8 - Exibir playlists e mídias");
+            System.out.println("9 - Sair");
+            System.out.print("Digite sua opção: ");
+
+            try {
+                opcao = scan.nextInt();
+
+                switch (opcao) {
+                    case 1:
+
+
+                        catalago.listarMidias();
+                        break;
+                    case 2:
+
+                        catalago.adicionarMidia();
+                        break;
+
+                    case 3:
+
+                        catalago.excluirMidia();
+                        break;
+                    case 4:
+
+                        catalago.quantidadeTotal();
+                        break;
+                    case 5:
+
+                        catalago.pesquisarMidia();
+                        break;
+                    case 6:
+
+                        catalago.criarPlaylist();
+                        break;
+                    case 7:
+
+                        catalago.excluirPlaylist();
+                        break;
+                    case 8:
+                        catalago.adicionarMidiaPlaylist();
+                        break;
+                    case 9:
+                        catalago.excluirMidiaPlaylist();
+                    case 10:
+                        catalago.visualizarMidiasPlaylists();
+                        break;
+                    case 11:
+                        System.out.println("Saindo do sistema...");
+
+                        break;
+                    default:
+                        System.out.println("Opção inválida.");
+                }
+            } catch (InputMismatchException | CodigoInvalidoExecption e) {
+                System.out.println("Por favor, digite um número válido!");
+                scan.nextLine();
+            }
+
+        } while (opcao != 9);
+
+
     }
 }

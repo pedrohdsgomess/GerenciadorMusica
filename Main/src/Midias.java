@@ -1,14 +1,17 @@
-public abstract class Mídias {
+public abstract class Midias {
     private String titulo;
     private String artista;
     private double duracao;
     private String genero;
 
-    public Mídias(String titulo, String artista, double duracao, String genero) {
+    public Midias(String titulo, String artista, double duracao, String genero) {
         this.titulo = titulo;
         this.artista = artista;
         this.duracao = duracao;
         this.genero = genero;
+    }
+
+    public Midias(String titulo, String artista, double duracao, Generos genero) {
     }
 
     public String getTitulo() {
