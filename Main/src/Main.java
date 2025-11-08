@@ -9,7 +9,7 @@ public class Main {
         String nomepessoa;
         String email;
 
-        // Cadastro inicial
+        
         System.out.println("=== Bem-vindo ao Mini Spotify ===");
         while (true) {
             System.out.print("Digite seu nome: ");
@@ -27,7 +27,7 @@ public class Main {
             }
         }
 
-        // Menu principal
+        
         int opcao = -1;
 
         do {
