@@ -1,15 +1,15 @@
-import exceptions.CodigoInvalidoExecption;
+import exceptions.CodigoInvalidoException;
 
 import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
-        Catalogo catalago = new Catalogo();
+        Catalogo catalogo = new Catalogo();
         String nomepessoa;
         String email;
 
-        
+
         System.out.println("=== Bem-vindo ao Mini Spotify ===");
         while (true) {
             System.out.print("Digite seu nome: ");
@@ -27,7 +27,7 @@ public class Main {
             }
         }
 
-        
+
         int opcao = -1;
 
         do {
@@ -50,41 +50,40 @@ public class Main {
                     case 1:
 
 
-                        catalago.listarMidias();
+                        catalogo.listarMidias();
                         break;
                     case 2:
 
-                        catalago.adicionarMidia();
+                        catalogo.adicionarMidia();
                         break;
 
                     case 3:
 
-                        catalago.excluirMidia();
+                        catalogo.excluirMidia();
                         break;
                     case 4:
 
-                        catalago.quantidadeTotal();
+                        catalogo.quantidadeTotal();
                         break;
                     case 5:
 
-                        catalago.pesquisarMidia();
+                        catalogo.pesquisarMidia();
                         break;
                     case 6:
 
-                        catalago.criarPlaylist();
+                        catalogo.criarPlaylist();
                         break;
                     case 7:
 
-                        catalago.excluirPlaylist();
+                        catalogo.excluirPlaylist();
                         break;
                     case 8:
-                        catalago.adicionarMidiaPlaylist();
+                        catalogo.adicionarMidiaPlaylist();
                         break;
                     case 9:
-                        catalago.excluirMidiaPlaylist();
-                        break;
+                        catalogo.excluirMidiaPlaylist();
                     case 10:
-                        catalago.visualizarMidiasPlaylists();
+                        catalogo.visualizarMidiasPlaylists();
                         break;
                     case 11:
                         System.out.println("Saindo do sistema...");
@@ -93,7 +92,7 @@ public class Main {
                     default:
                         System.out.println("Opção inválida.");
                 }
-            } catch (InputMismatchException | CodigoInvalidoExecption e) {
+            } catch (InputMismatchException | CodigoInvalidoException e) {
                 System.out.println("Por favor, digite um número válido!");
                 scan.nextLine();
             }
