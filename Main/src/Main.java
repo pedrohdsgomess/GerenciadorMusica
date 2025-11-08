@@ -82,6 +82,7 @@ public class Main {
                         break;
                     case 9:
                         catalago.excluirMidiaPlaylist();
+                        break;
                     case 10:
                         catalago.visualizarMidiasPlaylists();
                         break;
