@@ -1,0 +1,73 @@
+import exception.CodigoInvalidoExcption;
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+        Catalogo catalogo = new Catalogo();
+        String nomePessoa;
+        String email;
+
+        // Cadastro inicial
+        System.out.println("=== Bem-vindo ao Mini Spotify ===");
+        while (true) {
+            System.out.print("Digite seu nome: ");
+            nomePessoa = scan.nextLine();
+            System.out.print("Digite seu e-mail: ");
+            email = scan.nextLine();
+            if (nomePessoa.trim().isEmpty() || email.trim().isEmpty()) {
+                System.out.println("\nNome e e-mail são obrigatórios.");
+            } else if (!email.contains("@") || !email.contains(".com")) {
+                System.out.println("\nE-mail inválido! Confira se contém '@' e '.com'");
+            } else {
+                System.out.println("Cadastro realizado com sucesso!");
+                System.out.println("Olá, seja bem-vindo, " + nomePessoa + "!");
+                break;
+            }
+        }
+
+        int opcao = -1;
+
+        do {
+            System.out.println("\nSelecione uma das opções abaixo:");
+            System.out.println("1 - Listagem de mídias");
+            System.out.println("2 - Adicionar uma nova mídia");
+            System.out.println("3 - Excluir mídia");
+            System.out.println("4 - Exibir quantidade total de mídias");
+            System.out.println("5 - Pesquisar uma mídia");
+            System.out.println("6 - Criar playlist");
+            System.out.println("7 - Excluir playlist");
+            System.out.println("8 - Adicionar mídia à playlist");
+            System.out.println("9 - Excluir mídia da playlist");
+            System.out.println("10 - Exibir playlists e mídias");
+            System.out.println("11 - Sair");
+            System.out.print("Digite sua opção: ");
+
+            try {
+                opcao = scan.nextInt();
+                scan.nextLine(); // limpar buffer
+
+                switch (opcao) {
+                    case 1 -> catalogo.listarMidias();
+                    case 2 -> catalogo.adicionarMidia();
+                    case 3 -> catalogo.excluirMidia();
+                    case 4 -> catalogo.quantidadeTotal();
+                    case 5 -> catalogo.pesquisarMidia();
+                    case 6 -> catalogo.criarPlaylist();
+                    case 7 -> catalogo.excluirPlaylist();
+                    case 8 -> catalogo.adicionarMidiaPlaylist();
+                    case 9 -> catalogo.excluirMidiaPlaylist();
+                    case 10 -> catalogo.visualizarMidiasPlaylists();
+                    case 11 -> System.out.println("Saindo do sistema...");
+                    default -> System.out.println("Opção inválida.");
+                }
+            } catch (InputMismatchException | CodigoInvalidoExcption e) {
+                System.out.println("Por favor, digite um número válido!");
+                scan.nextLine();
+            }
+
+        } while (opcao != 11);
+
+        scan.close();
+    }
+}
